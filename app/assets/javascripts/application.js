@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 
 
-  $('form').on('submit', function(e) {
+  $('#form-first-answer').on('submit', function(e) {
     e.preventDefault();
     var answer =$('#first-answer').val();
 
@@ -41,7 +41,7 @@ $(document).ready(function() {
       type: "POST",
       url: "/quizzes",
       data: {
-       name: answer
+        name: answer
       }
     });
 
@@ -54,6 +54,45 @@ $(document).ready(function() {
   });
 
 
+  $('#form-second-answer').on('submit', function(e) {
+    e.preventDefault();
+    var answer =$('#second-answer').val();
+
+    $.ajax({
+      type: "POST",
+      url: "/quizzes",
+      data: {
+        name: answer
+      }
+    });
+
+    console.log(answer);
+
+
+    $('#answer-form').append("<div>"+ answer +'</div>');
+
+
+  });
+
+  $('#form-third-answer').on('submit', function(e) {
+    e.preventDefault();
+    var answer =$('#third-answer').val();
+
+    $.ajax({
+      type: "POST",
+      url: "/quizzes",
+      data: {
+        name: answer
+      }
+    });
+
+    console.log(answer);
+
+
+    $('#answer-form').append("<div>"+ answer +'</div>');
+
+
+  });
 
 
 
