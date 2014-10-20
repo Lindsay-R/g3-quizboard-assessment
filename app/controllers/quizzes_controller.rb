@@ -6,7 +6,7 @@ class QuizzesController < ApplicationController
 
     @answer =Quiz.new
 
-    @answers = Quiz.order(:answer_item)
+    @answers = Quiz.order(:name)
 
     respond_to do |format|
       format.html
@@ -24,7 +24,7 @@ class QuizzesController < ApplicationController
   def create
 
     @answer = Quiz.new(
-      :answer_item => params[:answer_item]
+      :name => params[:name]
     )
     if @answer.save
       render json: @answer
